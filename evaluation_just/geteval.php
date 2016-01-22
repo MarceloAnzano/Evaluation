@@ -29,7 +29,6 @@ function validUrl($con, $evtype, $eval){
 }
 
 //ONLY OPTIMIZED FOR FACULTY; PLEASE CHANGE LATER ACCORDINGLY E.G. ADD CHECKS FOR UTYPE
-//ONLY OPTIMIZED FOR FACULTY; PLEASE CHANGE LATER ACCORDINGLY E.G. ADD CHECKS FOR UTYPE
 if (!isset($_GET['evtype']) or !isset($_GET['eval']) or !isset($_GET['q'])) {
 	echo "ERROR";
 	exit();
@@ -44,8 +43,7 @@ $sql = "SELECT percent, content FROM $quest";
 $query = mysqli_query($con, $sql);
 $numrows = mysqli_num_rows($query);
 if ($numrows == 0){
-	echo "<h5>No questions</h5>
-	<a href='index.php'>Click here to go back</a>";
+	echo "No questions";
 	exit();
 }
 
@@ -58,53 +56,40 @@ while($row = mysqli_fetch_array($query)){
 	if ($row[0] > 0){
 		if ($row[1] != $category){
 			if ($category != ""){
-				echo "
-				</tbody>
-				</table>";
+				echo "</table>
+				<br/><br/>";
 				if ($putbackbtn==1){
 					echo "<input id='backbtn' type='button' value='Back'>";
 				}
 				$putbackbtn=1;
-				echo "
-				<div class='row' style='margin-top:20px;'>
-					<input id='partialbtn' class='btn waves-effect waves-light right' type='submit' value='Submit'>
-				</div>
+				echo "<input id='partialbtn' type='submit' value='Submit'>
 				</form>
 				<p id='status'></p>
 				</div>";
 			}
 			$category = $row[1];
-			echo "<div id='maindiv$count' class='maindiv'>
-			<form id=form$count onsubmit='return false;'>
+			echo "<div id='maindiv$count' class='maindiv' style='margin:auto;width:70%'>
+			<form id=form$count onsubmit='return false;' onshow='focusOnFirst()'>
 			<input id='percent' type='hidden' value=$row[0]>
-			<h5 class='name flow-text'>$category</h5>
-			<table class='striped'>
-			<thead>
-				<tr>
-					<th class='center-align' data-field='competencies'>Teaching Competencies</th>
-					<th class='rating center-align' data-field='rating'>Rating</th>
-				</tr>
-			</thead>
-			<tbody>";
+			<table>
+			<tr><td>$category</td></tr>";
 			$count += 1;
 			continue;
 		}
 	}
-	echo "
-	<tr>
-		<td>$row[1]</td>
-		<td><input type='number' min='1' max='100' id='rating1' type='text' required></td>
+	echo "<tr>
+	<td>$row[1]</td>
+	<td><input type='number' min='1' max='100' required></td>
 	</tr>";
 }
-echo "
-</tbody>
-</table>
+echo "</table>
 <br/><br/>
 <input id='evtype' type='hidden' value=$evtype>
 <input id='eval' type='hidden' value=$eval>
-<input id='quest' type='hidden' value=$q>
+<input id='quest' type='hidden' value=$quest>
 <input id='totalbtn' type='submit' value='Submit'>
 </form>
 <p id='status'></p>
 </div>";
+
 ?>

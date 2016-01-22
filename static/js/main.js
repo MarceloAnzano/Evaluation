@@ -11,7 +11,6 @@ function onReady(callback) {
 onReady(function(){
 	//$('.loading').css("display","none");
 	$('.loading').fadeOut("fast")
-	$(".pageContent").css("height",$(".valign").height() + $(".subNav").height() +"px");
 });
 
 $(document).ready(function(e){
@@ -24,17 +23,18 @@ $(document).ready(function(e){
 		$subNav = 1;
 	}
 
-	$(".avatarHead").css("height",$subNav*0.7+"px")
-	$(".avatarHead").css("width",$subNav*0.7+"px")
+	$(".avatarHead").css("height",$subNav*0.7+"px");
+	$(".avatarHead").css("width",$subNav*0.7+"px");
+	$(".avatarHead").css("margin",$subNav*0.15+"px");
+	$(".avatarHead").css("margin-right","0px");
 	console.log($subNav)
 	//$("footer").css("top",$displayHeight-50+"px");
 	$totalHead = $("header").height() + $("nav").height();
 	$availableDisplay = $displayHeight - $totalHead;
 	$(".navbar-fixed").css("height",$totalHead+"px");
-	$(".navImg").css("height",$totalHead-50+"px");
+	$(".navImg").css("height",$totalHead+"px");
 	$totalFoot = ($("footer").height()+parseInt($("footer").css("margin-top"))+parseInt($("footer").css("padding-top")));
 	$contentHeight = $(".pageContent").height() + $totalFoot;
-	console.log($(".valign").height());
 	console.log($availableDisplay);
 	console.log($contentHeight);
 	if($contentHeight < $availableDisplay){
@@ -48,6 +48,9 @@ $(document).ready(function(e){
 	// $forgotMarginTop = parseInt($(".forgot").css("margin-top"));
 	// $(".forgot").css("margin-top",$forgotMarginTop+$forgotMarginBtm+"px");
 	// $(".forgot").css("margin-bottom","0px");
+
+	$("input#partialbtn").css("height", $("i.btn").height()+"px");
 });
+
 
 //1 m6 push-m3

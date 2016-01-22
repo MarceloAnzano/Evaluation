@@ -95,7 +95,7 @@ if($log_login_status){
 <script type="text/javascript" src="/static/js/main.js"></script>
 </body>
 
-<script type="text/javascript" src="static/jquery-1.11.3.js"></script>
+<script type="text/javascript" src="static/js/jquery-1.11.3.js"></script>
 <script type="text/javascript">
 	function emptyElement(){
 		$('#status').html("");

@@ -36,9 +36,10 @@
 								include_once('checklogin.php');
 								if(!$log_login_status){
 									header('location:login.php');
-								} else {
-									include_once('ckusertype.php');
-								}?>
+								} 
+								//else {
+									//~include_once('ckusertype.php');
+								//}?>
 							</a></li>
 						<li><a class="custom-btn waves-effect waves-light" href="\logout.php">LOGOUT</a></li>
 					</ul>
@@ -134,6 +135,19 @@
 		var str=str.replace(/^\s+|\s+$/,'');
 		return str;
 	}
+
+	function resizeAlign(){
+		if($("div.valign").outerHeight() <= ($(window).height()- $(".navbar-fixed").height() - $(".subNav").height() - $("footer").height() - $("footer").css("padding"))){
+			$(".pageContent").css("height",($(window).height()- $(".navbar-fixed").height() - $(".subNav").height() - $("footer").height()-$("footer").css("padding"))+"px");
+		}else{
+			$(".pageContent").css("height",$("div.valign").outerHeight()+$("footer").outerHeight()+"px");
+			$(".pageContent").css("margin","20px 0px");
+			$(".pageContent div.valign").css("margin","0px");
+		}
+	}
+	$(document).ready(function(e){
+		resizeAlign();
+	});
 </script>
 </html>
 

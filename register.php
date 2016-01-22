@@ -65,7 +65,7 @@
 								</center>
 							</center>
 							<center class="row">
-								<button id="loginbtn" class="btn waves-effect waves-light right" type="submit" name="action">SIGN IN</button>
+								<button id="loginbtn" class="btn waves-effect waves-light right" type="submit" name="action">LOG IN</button>
 							</center>
 							<center id="status">
 							</center>

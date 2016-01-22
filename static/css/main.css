@@ -66,7 +66,7 @@ center.card-content{
 	margin: 0 auto;
 }
 
-button.btn{
+button.btn, i.btn{
 	background-color: #18487d !important;	
 }
 
@@ -106,7 +106,8 @@ button.btn{
 	text-align: left !important;
 	margin-top: 0px;
 	font-weight: 500;
-	color: #000 !important;
+	color: #000;
+	text-transform:capitalize;
 }
 
 .avatar{
@@ -114,7 +115,18 @@ button.btn{
 }
 
 .brand-logo{
+	display: block;
 	margin-left: 10px;
+	text-transform:capitalize;
+}
+
+.subBrand{
+	display: block;
+	margin-left: 10px;
+	text-transform:capitalize;
+	font-size: 1.3rem;
+	font-weight: 200;
+	line-height: 0px;
 }
 
 .waves-effect{
@@ -142,7 +154,8 @@ button.btn{
 	font-size: 2rem;
 }
 .avatarHead{
-	height: 50px;
+	margin: 5px;
+	height: 65px;
 	padding-right: 0px !important;
 	padding-left: 0px !important;
 }
@@ -170,9 +183,46 @@ thead{
 }
 
 
- .custom-btn.waves-effect.waves-light .waves-ripple {
+.custom-btn.waves-effect.waves-light .waves-ripple {
      /* The alpha value allows the text and background color
      of the button to still show through. */
      background-color: rgba(24, 72, 125, 0.95);
  }
 
+.disabledCard, .disabledCard h5.name.flow-text, .disabledCard p.bodyText.flow-text{
+	background-color: #dfdfdf !important;
+	box-shadow: none;
+	color: #9f9f9f !important;
+	cursor: default;
+}
+
+div.card.disabledCard a.waves-effect.card-content{
+	-webkit-tap-highlight-color:none;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	-ms-transition: none;
+	transition: none;
+}
+div.card.disabledCard a.waves-effect.card-content .waves-ripple{
+	display: none;
+}
+
+a.waves-effect.card-content{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.subNav div.row{
+	margin: 0px;
+}
+
+.subj{
+	text-transform:capitalize;
+}
